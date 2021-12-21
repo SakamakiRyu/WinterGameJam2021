@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager>
     public int GetStartLife => _CurrentLife;
     /// <summary>現在のHPを取得</summary>
     public int GetCurrentLife => _CurrentLife;
-    /// <summary>スコアを取得する</summary>
+    /// <summary>現在のスコアを取得する</summary>
     public int GetCurrentScore => _CurrentScore;
     /// <summary>現在のシーンステートを取得する</summary>
     public SceneState GetCurrentScene => _CurrentScene;
@@ -94,7 +94,9 @@ public class GameManager : Singleton<GameManager>
                 }
                 break;
             case SceneState.InGame:
-                { }
+                {
+                    _CurrentLife = _StartLife;
+                }
                 break;
             case SceneState.Result:
                 { }
@@ -118,7 +120,12 @@ public class GameManager : Singleton<GameManager>
                 { }
                 break;
             case SceneState.Title:
-                { }
+                {
+                    if (Input.anyKeyDown)
+                    {
+                        ChengeSceneState(SceneState.InGame);
+                    }
+                }
                 break;
             case SceneState.InGame:
                 { }
