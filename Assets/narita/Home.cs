@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Home : MonoBehaviour
 {
+    [SerializeField] AudioClip SpeedUp;
     [SerializeField] SpriteRenderer Houseimage;
     [SerializeField] int _score = 100;//加算されるスコア
     [SerializeField] int border = 3000;
@@ -22,10 +23,11 @@ public class Home : MonoBehaviour
             GameManager.Instance.AddScore(_score);
             //窓の色（背景）を変える
             Houseimage.color = new Color(1f, 0.92f, 0.016f, 1f);
-            if(GameManager.Instance.GetCurrentScore >= borderscore)
+            if (GameManager.Instance.GetCurrentScore >= borderscore)
             {
-              borderscore += border;
-              Stage.speed = Stage.speed - 0.01f;
+                borderscore += border;
+                AudioSource.PlayClipAtPoint(SpeedUp, transform.position);
+                Stage.speed = Stage.speed - 0.01f;
             }
         }
     }
