@@ -27,4 +27,6 @@ public class JsonSave : MonoBehaviour
         _saveDate._datelist = list.ToList();
         _JsonDate.Save(_saveDate);
     }
+
+    
 }
