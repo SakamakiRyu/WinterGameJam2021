@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class JsonLoad : MonoBehaviour
 {
-    [SerializeField] Text[] rankingLIst = new Text[10];
+    [SerializeField] Text[] rankingLIst = new Text[5];
     JsonDate _jsonDate;
     SaveDate _saveDate;
 
@@ -23,10 +23,5 @@ public class JsonLoad : MonoBehaviour
         {
             rankingLIst[i].text = (i + 1).ToString() + ": " + _saveDate._datelist[i]._score.ToString() + "\n" + _saveDate._datelist[i]._playerName.ToString();
         }
-    }
-
-    public void RankingSet()
-    {
-
     }
 }

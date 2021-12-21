@@ -23,19 +23,20 @@ public class JsonSave : MonoBehaviour
     public void NameSet()
     {
         userName = textBox.text;
+        Save();
     }
 
     public void Save()
     {
         SaveDate.PlayerDate playerDate = new SaveDate.PlayerDate();
         playerDate._playerName = userName;
-        playerDate._score = score;
+        playerDate._score = GameManager.Instance.GetCurrentScore;
         _saveDate._datelist.Add(playerDate);
         var list = _saveDate._datelist.OrderByDescending(_ => _._score);
         _saveDate._datelist = list.ToList();
-        if (_saveDate._datelist.Count > 10)
+        if (_saveDate._datelist.Count > 5)
         {
-            _saveDate._datelist.RemoveAt(10);
+            _saveDate._datelist.RemoveAt(5);
         }
         _JsonDate.Save(_saveDate);
         textBox.text = "";
