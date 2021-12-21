@@ -9,10 +9,10 @@ public class Present : MonoBehaviour
     public AudioClip BadBoy;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "家の名前")//家に当たったら音を鳴らして自分を消す
+        if (collision.gameObject.tag == "House")//家に当たったら音を鳴らして自分を消す
         {
             Debug.Log("成功！");
-            AudioSource.PlayClipAtPoint(Succeed, transform.position);
+            //AudioSource.PlayClipAtPoint(Succeed, transform.position);
             Destroy(this.gameObject);
         }
         //else if(collision.gameObject.tag == "悪人の家の名前")
@@ -24,7 +24,7 @@ public class Present : MonoBehaviour
         else//家以外に当たったら音を鳴らして自分を消す
         {
             Debug.Log("失敗！");
-            AudioSource.PlayClipAtPoint(Failure, transform.position);
+            //AudioSource.PlayClipAtPoint(Failure, transform.position);
             Destroy(this.gameObject);
         }
     }
