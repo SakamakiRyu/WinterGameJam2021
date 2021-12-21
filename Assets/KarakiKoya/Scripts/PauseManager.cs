@@ -11,6 +11,9 @@ public class PauseManager : MonoBehaviour
     /// <summary>true の時は一時停止</summary>
     bool _pauseFlg = false;
 
+    /// <summary> ゲーム画面中のtimeScale </summary>
+    float timeScaleForPlaying = 1.0f;
+
     void Update()
     {
         // ButtonNamePauseが押されたら一時停止・再開を切り替える
@@ -23,20 +26,19 @@ public class PauseManager : MonoBehaviour
     /// <summary>
     /// 一時停止・再開を切り替える
     /// </summary>
-    void PauseOrResume()
+    public void PauseOrResume()
     {
+        //ポーズ状態を反転
         _pauseFlg = !_pauseFlg;
 
-        // 全ての GameObject を取ってきて、IPause を継承したコンポーネントが追加されていたら Pause または Resume を呼ぶ
-        GameObject[] objects = FindObjectsOfType<GameObject>();
-
-        foreach (GameObject o in objects)
+        if (_pauseFlg)
         {
-            IPause i = o.GetComponent<IPause>();
-
-            //ポーズ中か田舎でポーズ停止or解除
-            if (_pauseFlg) i?.Pause();
-            else           i?.Resume();
+            timeScaleForPlaying = Time.timeScale;
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = timeScaleForPlaying;
         }
     }
 }

@@ -18,7 +18,7 @@ public class Stage : MonoBehaviour
             int Rand = Random.Range(0, Object.Length);//0～gameobjectの配列ー１をランダムで渡す
             GameObject Go = Instantiate(Object[Rand]);
             Go.transform.position = GeneratePosition;
-            Debug.Log("seikou");
+            Debug.Log("生成成功");
         }
         Destroy(this.gameObject);
     }
