@@ -15,22 +15,22 @@ public class Score : MonoBehaviour
     IObservable<Unit> clickEvent => this.UpdateAsObservable();
     GameManager gameManager;
     SaveDate saveDate;
-    bool isTop5In = false;
-    void start()
+    bool isTop5In = true;
+    void Start()
     {
-        menu.gameObject.SetActive(false);
+        //menu.gameObject.SetActive(false);
         nextPanel.SetActive(false);
         gameManager = GameManager.Instance;
         saveDate = SaveDate.Instance;
         scoreText.text = gameManager.GetCurrentScore.ToString();
-        isTop5In = gameManager.GetCurrentScore > saveDate._datelist[saveDate._datelist.Count - 1]._score ? true : false;
-        if (!isTop5In)
+        //isTop5In = gameManager.GetCurrentScore > saveDate._datelist[saveDate._datelist.Count - 1]._score ? true : false;
+        if (isTop5In == false)
         {
-            menu.gameObject.SetActive(true);
+            //menu.gameObject.SetActive(true);
         }
         clickEvent.Where(_ => Input.GetMouseButtonDown(0)).First().Subscribe(_ =>
        {
-           scoreText.gameObject.SetActive(false);
+           scoreText.gameObject.transform.parent.gameObject.SetActive(false);
            nextPanel.SetActive(true);
        }).AddTo(gameObject);
     }
