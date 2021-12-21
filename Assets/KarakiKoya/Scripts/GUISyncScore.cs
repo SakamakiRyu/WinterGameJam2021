@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class GUISyncScore : MonoBehaviour
 {
     /// <summary> 現在のスコア値(GameManagerから参照) </summary>
-    //int _nowScore => GameManager.Instance.GetCurrentScore;
-    int _nowScore = 0;
+    int _nowScore => GameManager.Instance.GetCurrentScore;
+    //int _nowScore = 0;
 
     /// <summary> 現在のスコア値・保管用 </summary>
     int _oldNowScore = 0;

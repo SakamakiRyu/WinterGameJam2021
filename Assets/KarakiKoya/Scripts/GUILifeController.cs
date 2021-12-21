@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class GUILifeController : MonoBehaviour
 {
     /// <summary> 現在の残機数(GameManagerから取得) </summary>
-    //int _nowLife => GameManager.Instance.GetCurrentLife;
-    int _nowLife = 5;
+    int _nowLife => GameManager.Instance.GetCurrentLife;
+    //int _nowLife = 5;
 
     /// <summary> 現在の残機数・保管用 </summary>
     int _oldNowLife = 0;
