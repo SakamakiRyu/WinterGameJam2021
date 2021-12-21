@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     /// <summary>現在のHPを取得</summary>
     public int GetCurrentLife => _CurrentLife;
     /// <summary>スコアを取得する</summary>
-    public int GetScore => _CurrentScore;
+    public int GetCurrentScore => _CurrentScore;
     /// <summary>現在のシーンステートを取得する</summary>
     public SceneState GetCurrentScene => _CurrentScene;
 
