@@ -4,53 +4,63 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// 残り残機表示用コンポーネント
+/// 残り残機表示用プログラム
 /// </summary>
 public class GUILifeController : MonoBehaviour
 {
-    /// <summary> 現在の残機数(GameManagerから取得) </summary>
-    int _nowLife => GameManager.Instance.GetCurrentLife;
+    [SerializeField, Tooltip("最大残機数")]
+    int maxLife = 5;
 
-    /// <summary> 現在の残機数・保管用 </summary>
-    int _oldNowLife = 0;
+    [SerializeField, Tooltip("残り残機数")]
+    int nowLife = 5;
 
-    [SerializeField, Tooltip("残機用アイコンプレハブをドラッグ＆ドロップ")]
-    GameObject _lifeIconPref = default;
+    /// <summary> 残機用アイコンImage </summary>
+    Image[] lifeIcons = default;
 
-    /// <summary> 残機用アイコンオブジェクト </summary>
-    Image[] _lifeIcons = default;
+
+    /* プロパティ */
+    public int NowLife { get => nowLife; }
 
 
 
     /// <summary>
-    /// ライフを反映させる
+    /// 初期化
     /// </summary>
-    public void SyncLife()
+    public void Initialize()
     {
-        Array.ForEach(_lifeIcons, i => i.enabled = false);
-        Array.ForEach(_lifeIcons.Take(_nowLife).ToArray(), i => i.enabled = true);
+        Array.ForEach(lifeIcons, i => i.enabled = true);
+        maxLife = lifeIcons.Length;
+        nowLife = maxLife;
+    }
+
+    /// <summary>
+    /// ライフを1減らす
+    /// </summary>
+    public void LifeDecrease()
+    {
+        if(nowLife > 0)
+        {
+            lifeIcons.LastOrDefault(i => i.enabled).enabled = false;
+            nowLife--;
+        }
+    }
+
+    /// <summary>
+    /// ライフを1増やす
+    /// </summary>
+    public void LifeIncrease()
+    {
+        if (nowLife < maxLife)
+        {
+            lifeIcons.FirstOrDefault(i => !i.enabled).enabled = true;
+            nowLife++;
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //ライフアイコンを初期ライフ分生成
-        for(int i = 0; i < _nowLife; i++)
-        {
-            GameObject ins = Instantiate(_lifeIconPref);
-            ins.transform.SetParent(transform);
-        }
-
-        _lifeIcons = GetComponentsInChildren<Image>();
-        _oldNowLife = _nowLife;
-    }
-
-    void Update()
-    {
-        if(_oldNowLife != _nowLife)
-        {
-            SyncLife();
-            _oldNowLife = _nowLife;
-        }
+        lifeIcons = GetComponentsInChildren<Image>();
+        Initialize();
     }
 }
