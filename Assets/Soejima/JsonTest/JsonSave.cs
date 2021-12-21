@@ -7,6 +7,7 @@ using System.Linq;
 public class JsonSave : MonoBehaviour
 {
     [SerializeField] InputField textBox = default;
+    [SerializeField] GameObject rankingPanel;
     [SerializeField] string userName;
     [SerializeField] int score;
     SaveDate _saveDate;
@@ -14,6 +15,7 @@ public class JsonSave : MonoBehaviour
 
     void Start()
     {
+        rankingPanel.SetActive(false);
         _JsonDate = JsonDate.Instance;
         _saveDate = SaveDate.Instance;
         textBox = GetComponentInChildren<InputField>();
@@ -39,8 +41,13 @@ public class JsonSave : MonoBehaviour
             _saveDate._datelist.RemoveAt(5);
         }
         _JsonDate.Save(_saveDate);
-        textBox.text = "";
+        
     }
 
-    
+    void RankingShow()
+    {
+        textBox.text = "";
+        rankingPanel.SetActive(true);
+
+    }
 }

@@ -15,10 +15,10 @@ public class Stage : MonoBehaviour
     {
         if (collision.CompareTag("DeadZone"))
         {
-            Debug.Log("Hit DeadZone");
             int Rand = Random.Range(0, Object.Length);//0～gameobjectの配列ー１をランダムで渡す
             GameObject Go = Instantiate(Object[Rand]);
             Go.transform.position = GeneratePosition;
+            Debug.Log("生成成功");
         }
         Destroy(this.gameObject);
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 121291355907270821}
   - component: {fileID: 121291355907270823}
   - component: {fileID: 121291355907270822}
+  - component: {fileID: -1909107267807459067}
   m_Layer: 8
   m_Name: prezennto (3)
   m_TagString: Present
@@ -130,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1909107267807459067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121291355907270745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee55d5513f209b548a2479bcc3d809c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Succeed: {fileID: 0}
+  Failure: {fileID: 0}
+  BadBoy: {fileID: 0}
+  ForceDirction: {x: 0, y: 0, z: 0}
