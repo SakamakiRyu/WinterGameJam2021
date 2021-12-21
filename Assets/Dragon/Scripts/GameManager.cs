@@ -39,6 +39,12 @@ public class GameManager : Singleton<GameManager>
 
     #region Unity Event
     /// <summary>
+    /// ゲームが始まった時に呼ばれる
+    /// </summary>
+    [SerializeField]
+    public UnityEvent OnGameStart = new UnityEvent();
+
+    /// <summary>
     /// ゲームが終了した時に呼ばれるイベント
     /// ※ここでのゲーム終了はライフが0になった時。
     /// </summary>
