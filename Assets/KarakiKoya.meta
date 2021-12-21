@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/KarakiKoya.meta
 guid: a531df3260ac36f40bcbf75a1c0f5bed
+=======
+guid: 25a47dc51f5119d48a9791267a2a426b
+>>>>>>> e81e16efd85cb3f1379492b82cef60b2d1b1064d:Assets/Dragon.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
