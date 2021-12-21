@@ -5,7 +5,7 @@ using UnityEngine.Events;
 /// <summary>
 /// ゲームを管理するコンポーネント
 /// </summary>
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public enum SceneState
     {
@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
         InGame,
         Result
     }
-
-    public static GameManager Instance { get; private set; } = null;
 
     [SerializeField]
     private int _StartLife = 5;
@@ -33,13 +31,18 @@ public class GameManager : MonoBehaviour
     /// <summary>現在のHPを取得</summary>
     public int GetCurrentLife => _CurrentLife;
     /// <summary>スコアを取得する</summary>
-    public int GetScore => _CurrentScore;
+    public int GetCurrentScore => _CurrentScore;
     /// <summary>現在のシーンステートを取得する</summary>
     public SceneState GetCurrentScene => _CurrentScene;
 
     #endregion
 
     #region Unity Event
+    /// <summary>
+    /// ゲームが始まった時に呼ばれる
+    /// </summary>
+    [SerializeField]
+    public UnityEvent OnGameStart = new UnityEvent();
 
     /// <summary>
     /// ゲームが終了した時に呼ばれるイベント
@@ -47,17 +50,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     public UnityEvent OnGameEnd = new UnityEvent();
-
     #endregion
 
-    private void Awake()
+    public override void Awake()
     {
-        if (Instance is null)
-        {
-            Instance = this;
-            return;
-        }
-        DontDestroyOnLoad(this.gameObject);
+        base.Awake();
         OnGameEnd.AddListener(GameEnd);
     }
 
@@ -93,19 +90,21 @@ public class GameManager : MonoBehaviour
                 break;
             case SceneState.Title:
                 {
-                    LoadScene(SceneState.Title);
+                    Reset();
                 }
                 break;
             case SceneState.InGame:
-                {
-                }
+                { }
                 break;
             case SceneState.Result:
-                {
-                    LoadScene(SceneState.Result);
-                }
+                { }
                 break;
         }
+
+        // シーンのロード
+        SceneManager.LoadSceneAsync((int)next);
+        // ステートの更新
+        _CurrentScene = next;
     }
 
     /// <summary>
@@ -131,20 +130,15 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// シーンのロードをする
-    /// </summary>
-    /// <param name="next">次のシーン</param>
-    private void LoadScene(SceneState next)
-    {
-        var nextSceneIndex = (int)next;
-        SceneManager.LoadSceneAsync(nextSceneIndex);
-    }
-
-    /// <summary>
     /// ゲーム終了時のGameManagerの振る舞い
     /// </summary>
     private void GameEnd()
     {
         ChengeSceneState(SceneState.Result);
+    }
+
+    private void Reset()
+    {
+        _CurrentScore = 0;
     }
 }
