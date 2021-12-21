@@ -334,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _StartLife: 5
   _TimerText: {fileID: 1059685867}
-  _CountDown: 3
+  _CountDownTime: 5
   OnGameStart:
     m_PersistentCalls:
       m_Calls: []

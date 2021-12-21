@@ -90,6 +90,23 @@ public class GameManager : Singleton<GameManager>
     }
 
     /// <summary>
+    /// ダメージを受ける
+    /// </summary>
+    /// <param name="damage">ダメージ</param>
+    public void AddDamage(int damage)
+    {
+        var after = _CurrentLife - damage;
+
+        if (after <= 0)
+        {
+            OnGameEnd?.Invoke();
+            return;
+        }
+
+        _CurrentLife = after;
+    }
+
+    /// <summary>
     /// シーンステートの変更をする
     /// ※シーンの変更はこの関数を使う事
     /// </summary>
@@ -155,11 +172,6 @@ public class GameManager : Singleton<GameManager>
                             _TimerText.enabled = false;
                             _IsInGame = true;
                         }
-                    }
-
-                    if (_CurrentLife < 1)
-                    {
-                        OnGameEnd.Invoke();
                     }
                 }
                 break;
