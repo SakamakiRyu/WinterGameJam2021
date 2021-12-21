@@ -5,7 +5,7 @@ using UnityEngine.Events;
 /// <summary>
 /// ゲームを管理するコンポーネント
 /// </summary>
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     public enum SceneState
     {
@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
         InGame,
         Result
     }
-
-    public static GameManager Instance { get; private set; } = null;
 
     [SerializeField]
     private int _StartLife = 5;
@@ -40,26 +38,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Unity Event
-
     /// <summary>
     /// ゲームが終了した時に呼ばれるイベント
     /// ※ここでのゲーム終了はライフが0になった時。
     /// </summary>
     [SerializeField]
     public UnityEvent OnGameEnd = new UnityEvent();
-
     #endregion
 
-    private void Awake()
-    {
-        if (Instance is null)
-        {
-            Instance = this;
-            return;
-        }
-        DontDestroyOnLoad(this.gameObject);
-        OnGameEnd.AddListener(GameEnd);
-    }
 
     private void Start()
     {
@@ -92,20 +78,20 @@ public class GameManager : MonoBehaviour
                 { }
                 break;
             case SceneState.Title:
-                {
-                    LoadScene(SceneState.Title);
-                }
+                { }
                 break;
             case SceneState.InGame:
-                {
-                }
+                { }
                 break;
             case SceneState.Result:
-                {
-                    LoadScene(SceneState.Result);
-                }
+                { }
                 break;
         }
+
+        // シーンのロード
+        SceneManager.LoadSceneAsync((int)next);
+        // ステートの更新
+        _CurrentScene = next;
     }
 
     /// <summary>
@@ -128,16 +114,6 @@ public class GameManager : MonoBehaviour
                 { }
                 break;
         }
-    }
-
-    /// <summary>
-    /// シーンのロードをする
-    /// </summary>
-    /// <param name="next">次のシーン</param>
-    private void LoadScene(SceneState next)
-    {
-        var nextSceneIndex = (int)next;
-        SceneManager.LoadSceneAsync(nextSceneIndex);
     }
 
     /// <summary>
