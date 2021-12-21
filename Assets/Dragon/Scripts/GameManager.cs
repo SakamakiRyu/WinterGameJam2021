@@ -46,6 +46,11 @@ public class GameManager : Singleton<GameManager>
     public UnityEvent OnGameEnd = new UnityEvent();
     #endregion
 
+    public override void Awake()
+    {
+        base.Awake();
+        OnGameEnd.AddListener(GameEnd);
+    }
 
     private void Start()
     {
@@ -78,7 +83,9 @@ public class GameManager : Singleton<GameManager>
                 { }
                 break;
             case SceneState.Title:
-                { }
+                {
+                    Reset();
+                }
                 break;
             case SceneState.InGame:
                 { }
@@ -122,5 +129,10 @@ public class GameManager : Singleton<GameManager>
     private void GameEnd()
     {
         ChengeSceneState(SceneState.Result);
+    }
+
+    private void Reset()
+    {
+        _CurrentScore = 0;
     }
 }
