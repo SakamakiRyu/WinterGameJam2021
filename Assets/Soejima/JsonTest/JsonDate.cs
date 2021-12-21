@@ -19,6 +19,7 @@ public class JsonDate : MonoBehaviour
     private void Start()
     {
         _saveDate = SaveDate.Instance;
+        Debug.Log(_saveDate);
     }
     private static string GetFilePath()
     {
@@ -35,12 +36,11 @@ public class JsonDate : MonoBehaviour
 
     public SaveDate Load()
     {
-        //SaveDate saveDate = new SaveDate();
-        Debug.Log(GetFilePath());
         string jsonDate = File.ReadAllText(GetFilePath());
+        Debug.Log(_saveDate);
         JsonUtility.FromJsonOverwrite(jsonDate, _saveDate);
-        //Debug.Log(saveDate);
         _saveDate._datelist = _saveDate._datelist.OrderByDescending(x => x._score).ToList();
+        
         return _saveDate;
     }
 
