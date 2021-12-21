@@ -5,6 +5,7 @@ using System.Collections;
 
 /// <summary>
 /// ゲームを管理するコンポーネント
+/// 本来はTimerやScene関連は分けるべき。
 /// </summary>
 public class GameManager : Singleton<GameManager>
 {
@@ -18,6 +19,10 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private int _StartLife = 5;
+    [SerializeField]
+    private UnityEngine.UI.Text _TimerText;
+    [SerializeField]
+    private float _CountDownTime;
 
     /// <summary>現在のHP</summary>
     private int _CurrentLife;
@@ -25,6 +30,10 @@ public class GameManager : Singleton<GameManager>
     private int _CurrentScore = 0;
     /// <summary>現在のシーンのステート</summary>
     private SceneState _CurrentScene = SceneState.None;
+    /// <summary>ゲーム中かのフラグ</summary>
+    private bool _IsInGame = false;
+    /// <summary>タイマー</summary>
+    private float _Timer;
 
     #region Property
     /// <summary>スタート時のライフ</summary>
@@ -35,7 +44,8 @@ public class GameManager : Singleton<GameManager>
     public int GetCurrentScore => _CurrentScore;
     /// <summary>現在のシーンステートを取得する</summary>
     public SceneState GetCurrentScene => _CurrentScene;
-
+    /// <summary>ゲーム中かのフラグ</summary>
+    public bool IsInGame => _IsInGame;
     #endregion
 
     #region Unity Event
@@ -61,6 +71,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        _TimerText.text = "";
         ChengeSceneState(SceneState.Title);
     }
 
@@ -77,7 +88,6 @@ public class GameManager : Singleton<GameManager>
     {
         _CurrentScore += score;
     }
-
 
     /// <summary>
     /// シーンステートの変更をする
@@ -98,6 +108,7 @@ public class GameManager : Singleton<GameManager>
             case SceneState.InGame:
                 {
                     _CurrentLife = _StartLife;
+                    _TimerText.enabled = true;
                 }
                 break;
             case SceneState.Result:
@@ -130,10 +141,35 @@ public class GameManager : Singleton<GameManager>
                 }
                 break;
             case SceneState.InGame:
-                { }
+                {
+                    if (!_IsInGame)
+                    {
+                        if (_Timer > 0)
+                        {
+                            _Timer -= Time.deltaTime;
+                            var time = (int)_Timer;
+                            _TimerText.text = time.ToString();
+                        }
+                        else
+                        {
+                            _TimerText.enabled = false;
+                            _IsInGame = true;
+                        }
+                    }
+
+                    if (_CurrentLife < 1)
+                    {
+                        OnGameEnd.Invoke();
+                    }
+                }
                 break;
             case SceneState.Result:
-                { }
+                {
+                    if (Input.anyKeyDown)
+                    {
+                        ChengeSceneState(SceneState.Title);
+                    }
+                }
                 break;
         }
     }
@@ -149,5 +185,8 @@ public class GameManager : Singleton<GameManager>
     private void Reset()
     {
         _CurrentScore = 0;
+        _TimerText.text = "";
+        _Timer = _CountDownTime;
+        _IsInGame = false;
     }
 }

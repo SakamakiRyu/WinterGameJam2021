@@ -34,4 +34,9 @@ public class Present : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
 }

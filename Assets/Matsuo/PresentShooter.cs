@@ -21,6 +21,8 @@ public class PresentShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.IsInGame) return;
+
         timer += Time.deltaTime;
         if (Input.GetButtonDown("Fire1"))
         {

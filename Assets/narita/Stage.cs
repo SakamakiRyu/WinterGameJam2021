@@ -9,13 +9,16 @@ public class Stage : MonoBehaviour
     public static float speed = -0.01f;
     void Update()
     {
-        transform.Translate(speed, 0, 0);
+        if (GameManager.Instance.IsInGame)
+        {
+            transform.Translate(speed, 0, 0);
+        }
+        
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("DeadZone"))
         {
-            Debug.Log("Hit DeadZone");
             int Rand = Random.Range(0, Object.Length);//0～gameobjectの配列ー１をランダムで渡す
             GameObject Go = Instantiate(Object[Rand]);
             Go.transform.position = GeneratePosition;
