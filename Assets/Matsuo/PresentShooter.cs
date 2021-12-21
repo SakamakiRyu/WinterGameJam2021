@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PresentShooter : MonoBehaviour
 {
-    [SerializeField] GameObject present = default;
+    [SerializeField] GameObject present1 = default;
+    [SerializeField] GameObject present2 = default;
+    [SerializeField] GameObject present3 = default;
+    [SerializeField] GameObject present4 = default;
+
     [SerializeField] Transform _muzzle = default;
+
+    [SerializeField] int serect = 0; 
     void Start()
     {
 
@@ -16,9 +22,27 @@ public class PresentShooter : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            var go = Instantiate(present);
+            serect = Random.Range(0, 4);
+            if (serect == 0)
+            {
+            var go = Instantiate(present1);
             go.transform.position = _muzzle.position;
-
+            }
+            else if (serect == 1)
+            {
+                var go = Instantiate(present2);
+                go.transform.position = _muzzle.position;
+            }
+            else if (serect == 2)
+            {
+                var go = Instantiate(present3);
+                go.transform.position = _muzzle.position;
+            }
+            else if (serect == 3)
+            {
+                var go = Instantiate(present4);
+                go.transform.position = _muzzle.position;
+            }
         }
     }
 }
