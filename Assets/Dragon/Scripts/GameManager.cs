@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using System.Collections;
 
 /// <summary>
 /// ゲームを管理するコンポーネント
@@ -76,6 +77,7 @@ public class GameManager : Singleton<GameManager>
     {
         _CurrentScore += score;
     }
+
 
     /// <summary>
     /// シーンステートの変更をする

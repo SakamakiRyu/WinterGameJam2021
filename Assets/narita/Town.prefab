@@ -50,12 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002482027c004fe46b82de14f02a0a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeneratePosition: {x: 14, y: 0, z: 0}
+  GeneratePosition: {x: 18, y: 0, z: 0}
   Object:
   - {fileID: 8329935544830725474}
   - {fileID: 8934466357012654905, guid: 52e0eb22bbfb4e94585101b3bac46ffe, type: 3}
   - {fileID: 1721215013765643273, guid: f5d5b86ef634f7d42bce0287dace2a8a, type: 3}
-  S: -0.01
 --- !u!61 &3313453127434858411
 BoxCollider2D:
   m_ObjectHideFlags: 0
