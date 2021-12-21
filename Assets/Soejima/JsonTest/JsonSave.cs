@@ -6,6 +6,7 @@ using System.Linq;
 
 public class JsonSave : MonoBehaviour
 {
+    [SerializeField] InputField textBox = default;
     [SerializeField] string userName;
     [SerializeField] int score;
     SaveDate _saveDate;
@@ -15,6 +16,13 @@ public class JsonSave : MonoBehaviour
     {
         _JsonDate = JsonDate.Instance;
         _saveDate = SaveDate.Instance;
+        textBox = GetComponentInChildren<InputField>();
+        //textBox.gameObject.SetActive(false);
+    }
+
+    public void NameSet()
+    {
+        userName = textBox.text;
     }
 
     public void Save()
@@ -25,7 +33,12 @@ public class JsonSave : MonoBehaviour
         _saveDate._datelist.Add(playerDate);
         var list = _saveDate._datelist.OrderByDescending(_ => _._score);
         _saveDate._datelist = list.ToList();
+        if (_saveDate._datelist.Count > 10)
+        {
+            _saveDate._datelist.RemoveAt(10);
+        }
         _JsonDate.Save(_saveDate);
+        textBox.text = "";
     }
 
     

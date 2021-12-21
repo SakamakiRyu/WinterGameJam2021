@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JsonLoad : MonoBehaviour
 {
+    [SerializeField] Text[] rankingLIst = new Text[10];
     JsonDate _jsonDate;
     SaveDate _saveDate;
 
@@ -17,9 +19,14 @@ public class JsonLoad : MonoBehaviour
     public void Load()
     {
         _saveDate = _jsonDate.Load();
-        foreach(var date in _saveDate._datelist)
+        for (int i = 0; i < _saveDate._datelist.Count; i++)
         {
-            Debug.Log(date._playerName.ToString() + date._score.ToString());
+            rankingLIst[i].text = (i + 1).ToString() + ": " + _saveDate._datelist[i]._score.ToString() + "\n" + _saveDate._datelist[i]._playerName.ToString();
         }
+    }
+
+    public void RankingSet()
+    {
+
     }
 }
