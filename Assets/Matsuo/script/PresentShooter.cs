@@ -11,6 +11,7 @@ public class PresentShooter : MonoBehaviour
     [SerializeField] Transform _muzzle = default;
     float timer = 0;
     [SerializeField] float interval = 0.3f;
+    [SerializeField] SpriteRenderer _allowImage;
 
     [SerializeField] int serect = 0;
     void Start()
@@ -26,6 +27,18 @@ public class PresentShooter : MonoBehaviour
         timer += Time.deltaTime;
         if (Input.GetButtonDown("Jump"))
         {
+            if (_allowImage)
+            {
+                _allowImage.enabled = true;
+            }
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            if (_allowImage)
+            {
+                _allowImage.enabled = false;
+            }
             serect = Random.Range(0, 4);
             if (timer > interval)
             {
