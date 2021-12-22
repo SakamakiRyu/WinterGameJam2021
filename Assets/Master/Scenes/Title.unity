@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 1076055990}
   - component: {fileID: 1076055989}
   m_Layer: 0
-  m_Name: game- 1
+  m_Name: HousesOfBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 1293507062}
   - component: {fileID: 1293507061}
   m_Layer: 0
-  m_Name: 33x
+  m_Name: TitleImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,7 +993,7 @@ GameObject:
   - component: {fileID: 1900689583}
   - component: {fileID: 1900689582}
   m_Layer: 0
-  m_Name: game-
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
