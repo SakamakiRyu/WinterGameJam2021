@@ -679,6 +679,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: House
       objectReference: {fileID: 0}
+    - target: {fileID: 5931906126340303586, guid: 17a8de840c7cfc4418582f97d48a376c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.3739262
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931906126340303586, guid: 17a8de840c7cfc4418582f97d48a376c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.7785382
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931906126340303586, guid: 17a8de840c7cfc4418582f97d48a376c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -1.1595888
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931906126340303586, guid: 17a8de840c7cfc4418582f97d48a376c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.760731
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8070609709444860257, guid: 17a8de840c7cfc4418582f97d48a376c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17a8de840c7cfc4418582f97d48a376c, type: 3}

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8001418754793983302}
   - component: {fileID: 8001418754793983303}
   - component: {fileID: 3156136359383687333}
-  - component: {fileID: -742395280000841015}
   m_Layer: 0
   m_Name: House2
   m_TagString: House
@@ -97,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a042802a05fdab43be0d573101cfd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedUp: {fileID: 0}
   Houseimage: {fileID: 8001418754929367321}
   _score: 100
   border: 3000
@@ -127,20 +125,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.86, y: 2.79}
   m_EdgeRadius: 0
---- !u!114 &-742395280000841015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8001418754793983297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002482027c004fe46b82de14f02a0a5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GeneratePosition: {x: 0, y: 0, z: 0}
-  Object: []
 --- !u!1 &8001418754929367323
 GameObject:
   m_ObjectHideFlags: 0

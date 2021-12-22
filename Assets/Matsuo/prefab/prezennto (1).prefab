@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5003712409420912007}
   - component: {fileID: 5003712409420912006}
   - component: {fileID: 3342989323666068644}
-  m_Layer: 8
+  m_Layer: 4
   m_Name: prezennto (1)
   m_TagString: Present
   m_Icon: {fileID: 0}
@@ -145,4 +145,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ForceDirction: {x: 0, y: 0, z: 0}
   _Rb: {fileID: 5003712409420912007}
-  _DropSpeed: -3
