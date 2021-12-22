@@ -35,6 +35,7 @@ public class House : MonoBehaviour
 
             if (GameManager.Instance.GetCurrentScore >= borderscore)
             {
+                SoundManager.Instance.PlaySE(SoundManager.SE.Speedup);
                 borderscore += border;
                 Stage.speed = Stage.speed - 0.01f;
             }
