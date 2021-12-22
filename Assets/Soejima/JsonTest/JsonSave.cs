@@ -32,7 +32,7 @@ public class JsonSave : MonoBehaviour
         gameManager = GameManager.Instance;
         //textBox = GetComponentInChildren<InputField>();
         scoreText.text = gameManager.GetCurrentScore.ToString();
-        clickEvent.Where(_ => Input.GetMouseButtonDown(0) && isHighScore == true).First().Subscribe(_ =>
+        clickEvent.Where(_ => Input.GetMouseButtonDown(0) && isHighScore == true).FirstOrDefault().Subscribe(_ =>
         {
             scoreText.gameObject.transform.parent.gameObject.SetActive(false);
             nextPanel.SetActive(true);
