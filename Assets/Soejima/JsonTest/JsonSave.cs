@@ -12,6 +12,7 @@ public class JsonSave : MonoBehaviour
     [SerializeField] InputField textBox = default;
     [SerializeField] GameObject _sprite;
     [SerializeField] Button menu;
+    [SerializeField] Button nextButton;
     [SerializeField] Text scoreText;
     [SerializeField] GameObject nextPanel;
     [SerializeField] GameObject rankingPanel;
@@ -20,7 +21,7 @@ public class JsonSave : MonoBehaviour
     SaveDate _saveDate;
     JsonDate _jsonDate;
     GameManager gameManager;
-    IObservable<Unit> clickEvent => this.UpdateAsObservable();
+    //IObservable<Unit> clickEvent => this.UpdateAsObservable();
     bool isHighScore = true;
 
     void Start()
@@ -33,16 +34,17 @@ public class JsonSave : MonoBehaviour
         gameManager = GameManager.Instance;
         //textBox = GetComponentInChildren<InputField>();
         scoreText.text = gameManager.GetCurrentScore.ToString();
-        clickEvent.Where(_ => Input.GetMouseButtonDown(0) && isHighScore == true).FirstOrDefault().Subscribe(_ =>
+        nextButton.OnClickAsObservable().FirstOrDefault().Subscribe(_ =>
         {
             scoreText.gameObject.transform.parent.gameObject.SetActive(false);
             nextPanel.SetActive(true);
-        }).AddTo(gameObject);
+        }).AddTo(this);
         Load();
         isHighScore = gameManager.GetCurrentScore > _saveDate._datelist[_saveDate._datelist.Count - 1]._score ? true : false;
         if (isHighScore == false)
         {
             menu.gameObject.SetActive(true);
+            nextButton.gameObject.SetActive(false);
         }
         if (isHighScore == true)
         {
@@ -53,7 +55,6 @@ public class JsonSave : MonoBehaviour
     public void NameSet()
     {
         userName = textBox.text;
-        Save();
     }
 
     public void Load()
