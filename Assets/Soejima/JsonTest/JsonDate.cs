@@ -37,7 +37,7 @@ public class JsonDate : MonoBehaviour
     public SaveDate Load()
     {
         string jsonDate = File.ReadAllText(GetFilePath());
-        //Debug.Log(_saveDate);
+        Debug.Log(_saveDate);
         JsonUtility.FromJsonOverwrite(jsonDate, _saveDate);
         _saveDate._datelist = _saveDate._datelist.OrderByDescending(x => x._score).ToList();
         
