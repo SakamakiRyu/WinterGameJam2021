@@ -45,6 +45,7 @@ public class Present : MonoBehaviour
         if (collision.CompareTag("House"))
         {
             SoundManager.Instance.PlaySE(SoundManager.SE.Success);
+            EffectManager.Instance.PlayEffect(EffectManager.Effect.Twinkle, transform.position, 0.5f);
             Destroy(this.gameObject);
             return;
         }

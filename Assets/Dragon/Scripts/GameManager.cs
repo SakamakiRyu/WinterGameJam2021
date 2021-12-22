@@ -163,6 +163,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.Title:
                 {
+                    SoundManager.Instance.ChengeBGMPlaySpeed(0f);
                     _startButton.gameObject.SetActive(true);
                     _rankingButton.gameObject.SetActive(true);
                     Reset();
@@ -170,6 +171,8 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.InGame:
                 {
+                    SoundManager.Instance.StartPlayerBGM();
+                    Cursor.visible = false;
                     _startButton.gameObject.SetActive(false);
                     _rankingButton.gameObject.SetActive(false);
                     SoundManager.Instance.chengeBGMtemp(1.5f);
@@ -178,7 +181,10 @@ public class GameManager : Singleton<GameManager>
                 }
                 break;
             case SceneState.Result:
-                { }
+                {
+                    SoundManager.Instance.StopPlayerBGM();
+                    Cursor.visible = true;
+                }
                 break;
         }
 
@@ -250,6 +256,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Reset()
     {
+        SoundManager.Instance.ChengeBGMPlaySpeed(1.0f);
         _CurrentDropSpeed = _DefaultDropSpeed;
         _CurrentScore = 0;
         SoundManager.Instance.chengeBGMtemp(1.0f);
