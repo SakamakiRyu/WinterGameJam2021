@@ -2,6 +2,8 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
+using UniRx;
 
 /// <summary>
 /// ゲームを管理するコンポーネント
@@ -31,6 +33,12 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private int _DefaultBoder;
+
+    [SerializeField]
+    private Button _startButton;
+
+    [SerializeField]
+    private Button _rankingButton;
 
     /// <summary>現在のHP</summary>
     private int _CurrentLife;
@@ -85,8 +93,11 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        _startButton.gameObject.SetActive(true);
+        _rankingButton.gameObject.SetActive(true);
         _TimerText.text = "";
         ChengeSceneState(SceneState.Title);
+        _startButton.OnClickAsObservable().Subscribe( _ => ChengeSceneState(SceneState.InGame));
     }
 
     private void Update()
@@ -141,11 +152,15 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.Title:
                 {
+                    _startButton.gameObject.SetActive(true);
+                    _rankingButton.gameObject.SetActive(true);
                     Reset();
                 }
                 break;
             case SceneState.InGame:
                 {
+                    _startButton.gameObject.SetActive(false);
+                    _rankingButton.gameObject.SetActive(false);
                     SoundManager.Instance.chengeBGMtemp(1.5f);
                     _TimerText.enabled = true;
                     _CurrentLife = _StartLife;
@@ -231,5 +246,6 @@ public class GameManager : Singleton<GameManager>
         _TimerText.text = "";
         _Timer = _CountDownTime;
         _IsInGame = false;
+        
     }
 }
