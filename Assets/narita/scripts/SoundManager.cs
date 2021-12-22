@@ -95,7 +95,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public void StartPlayerBGM()
     {
-        _PlayerSource.time = 0f;
+         _PlayerSource.time = 0f;
         _PlayerSource.Play();
     }
 
