@@ -17,13 +17,13 @@ public class Present : MonoBehaviour
     {
         if (collision.CompareTag("House"))
         {
-            SoundManager.Instance.PlaySE(SoundManager.SE.Success);
+            // SoundManager.Instance.PlaySE(SoundManager.SE.Success);
             Destroy(this.gameObject);
             return;
         }
         else if (!collision.CompareTag("Present"))
         {
-            SoundManager.Instance.PlaySE(SoundManager.SE.Failure);
+            // SoundManager.Instance.PlaySE(SoundManager.SE.Failure);
             GameManager.Instance.AddDamage(1);
             Destroy(this.gameObject);
         }
