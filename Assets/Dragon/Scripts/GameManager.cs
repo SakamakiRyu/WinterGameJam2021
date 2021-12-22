@@ -200,6 +200,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.Result:
                 {
+                    SoundManager.Instance.PlayBGM(SoundManager.BGM.TitleMusic);
                 }
                 break;
         }
