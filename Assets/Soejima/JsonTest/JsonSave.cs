@@ -37,6 +37,7 @@ public class JsonSave : MonoBehaviour
         nextButton.OnClickAsObservable().FirstOrDefault().Subscribe(_ =>
         {
             scoreText.gameObject.transform.parent.gameObject.SetActive(false);
+            EffectManager.Instance.PlayEffect(EffectManager.Effect.Cracker, new Vector3(0, 0, 0), 2.5f);
             nextPanel.SetActive(true);
         }).AddTo(this);
         Load();

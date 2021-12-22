@@ -40,6 +40,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private Button _rankingButton;
 
+    [SerializeField]
+    private Button _tutorialButton;
+
     /// <summary>現在のHP</summary>
     private int _CurrentLife;
     /// <summary>スコア</summary>
@@ -93,8 +96,6 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        _startButton.gameObject.SetActive(true);
-        _rankingButton.gameObject.SetActive(true);
         _TimerText.text = "";
         ChengeSceneState(SceneState.Title);
         _startButton.OnClickAsObservable().Subscribe( _ => ChengeSceneState(SceneState.InGame));
@@ -154,6 +155,7 @@ public class GameManager : Singleton<GameManager>
                 {
                     _startButton.gameObject.SetActive(true);
                     _rankingButton.gameObject.SetActive(true);
+                    _tutorialButton.gameObject.SetActive(true);
                     Reset();
                 }
                 break;
@@ -161,6 +163,7 @@ public class GameManager : Singleton<GameManager>
                 {
                     _startButton.gameObject.SetActive(false);
                     _rankingButton.gameObject.SetActive(false);
+                    _tutorialButton.gameObject.SetActive(false);
                     SoundManager.Instance.chengeBGMtemp(1.5f);
                     _TimerText.enabled = true;
                     _CurrentLife = _StartLife;
