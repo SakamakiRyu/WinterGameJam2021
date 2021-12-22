@@ -19,10 +19,18 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private int _StartLife = 5;
+
     [SerializeField]
     private UnityEngine.UI.Text _TimerText;
+
     [SerializeField]
     private float _CountDownTime;
+
+    [SerializeField]
+    private float _DefaultGameSpeed = -0.05f;
+
+    [SerializeField]
+    private int _DefaultBoder;
 
     /// <summary>現在のHP</summary>
     private int _CurrentLife;
@@ -36,6 +44,8 @@ public class GameManager : Singleton<GameManager>
     private float _Timer;
     /// <summary>ゲームの進行速度</summary>
     private float _GameSpeed = -0.05f;
+    /// <summary></summary>
+    private int _Boder = 2000;
 
     #region Property
     /// <summary>スタート時のライフ</summary>
@@ -48,6 +58,8 @@ public class GameManager : Singleton<GameManager>
     public SceneState GetCurrentScene => _CurrentScene;
     /// <summary>ゲーム中かのフラグ</summary>
     public bool IsInGame => _IsInGame;
+    /// <summary>ゲームスピード</summary>
+    public float GetGameSpeed => _GameSpeed;
     #endregion
 
     #region Unity Event
@@ -88,7 +100,15 @@ public class GameManager : Singleton<GameManager>
     /// <param name="score">加算する値</param>
     public void AddScore(int score)
     {
-        _CurrentScore += score;
+        var after = _CurrentScore + score;
+
+        if (after > _Boder)
+        {
+            _GameSpeed -= 0.05f;
+            _Boder += 2000;
+        }
+
+        _CurrentScore = after;
     }
 
     /// <summary>
@@ -207,6 +227,8 @@ public class GameManager : Singleton<GameManager>
     private void Reset()
     {
         _CurrentScore = 0;
+        _GameSpeed = _DefaultGameSpeed;
+        _Boder = _DefaultBoder;
         _TimerText.text = "";
         _Timer = _CountDownTime;
         _IsInGame = false;
