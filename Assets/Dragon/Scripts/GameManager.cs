@@ -179,7 +179,7 @@ public class GameManager : Singleton<GameManager>
                 {
                     if (Input.anyKeyDown)
                     {
-                        ChengeSceneState(SceneState.Title);
+                      //  ChengeSceneState(SceneState.Title);
                     }
                 }
                 break;

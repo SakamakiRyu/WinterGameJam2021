@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 121291355907270821}
   - component: {fileID: 121291355907270823}
   - component: {fileID: 121291355907270822}
-  - component: {fileID: -1909107267807459067}
+  - component: {fileID: 3552533245316418854}
   m_Layer: 8
   m_Name: prezennto (3)
   m_TagString: Present
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-1909107267807459067
+--- !u!114 &3552533245316418854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 121291355907270745}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee55d5513f209b548a2479bcc3d809c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a3e100c912518740abf9c6e18509fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Succeed: {fileID: 0}

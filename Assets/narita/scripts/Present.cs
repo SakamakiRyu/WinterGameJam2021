@@ -21,33 +21,12 @@ public class Present : MonoBehaviour
     {
         if (collision.CompareTag("House"))
         {
-            //AudioSource.PlayClipAtPoint(Succeed, transform.position);
             Destroy(this.gameObject);
+            return;
         }
-        else if (!CompareTag("Present"))
+        else if (!collision.CompareTag("Present"))
         {
-            Destroy(this.gameObject);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "House")//家に当たったら音を鳴らして自分を消す
-        {
-            Debug.Log("成功！");
-            AudioSource.PlayClipAtPoint(Succeed, transform.position);
-            Destroy(this.gameObject);
-        }
-        //else if(collision.gameObject.tag == "悪人の家の名前")
-        //{
-        //    Debag.Log("悪い子だった…");
-        //    AudioSource.PlayClipAtPoint(BadBoy, transform.position);
-        //    Destroy(this.gameObject);
-        //}
-        else//家以外に当たったら音を鳴らして自分を消す
-        {
-            Debug.Log("失敗！");
-            AudioSource.PlayClipAtPoint(Failure, transform.position);
+            GameManager.Instance.AddDamage(1);
             Destroy(this.gameObject);
         }
     }
