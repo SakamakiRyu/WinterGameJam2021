@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a042802a05fdab43be0d573101cfd4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedUp: {fileID: 0}
   Houseimage: {fileID: 8972580458725022645}
   _score: 100
   border: 3000
@@ -114,7 +113,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.59, y: -0.15}
+  m_Offset: {x: 7.07, y: -0.72}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125,7 +124,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.12, y: 2.84}
+  m_Size: {x: 2.71, y: 1.74}
   m_EdgeRadius: 0
 --- !u!114 &-7094773059466912628
 MonoBehaviour:
