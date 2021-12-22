@@ -62,7 +62,15 @@ public class JsonSave : MonoBehaviour
         
         for (int i = 0; i < _saveDate._datelist.Count; i++)
         {
-            rankingLIst[i].text = (i + 1).ToString() + "位: " + _saveDate._datelist[i]._playerName.ToString() + "  " + _saveDate._datelist[i]._score.ToString();
+            if (i < 3)
+            {
+                rankingLIst[i].text = " 　  " + _saveDate._datelist[i]._playerName.ToString() + "  " + _saveDate._datelist[i]._score.ToString();
+            }
+            else
+            {
+                rankingLIst[i].text = (i + 1).ToString() + "位: " + _saveDate._datelist[i]._playerName.ToString() + "  " + _saveDate._datelist[i]._score.ToString();
+            }
+            
         }
     }
 
