@@ -7,6 +7,9 @@ public class Present : MonoBehaviour
     [SerializeField]
     private Vector3 ForceDirction;
 
+    /// <summary>ダメージを与えたか</summary>
+    private bool _hasDamage;
+
     private void Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -17,14 +20,16 @@ public class Present : MonoBehaviour
     {
         if (collision.CompareTag("House"))
         {
-            // SoundManager.Instance.PlaySE(SoundManager.SE.Success);
             Destroy(this.gameObject);
             return;
         }
         else if (!collision.CompareTag("Present"))
         {
-            // SoundManager.Instance.PlaySE(SoundManager.SE.Failure);
-            GameManager.Instance.AddDamage(1);
+            if (!_hasDamage)
+            {
+                GameManager.Instance.AddDamage(1);
+                _hasDamage = true;
+            }
             Destroy(this.gameObject);
         }
     }

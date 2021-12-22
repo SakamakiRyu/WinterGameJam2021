@@ -6,7 +6,9 @@ public class Stage : MonoBehaviour
 {
     [SerializeField] Vector3 GeneratePosition;//移動させる座標
     [SerializeField] GameObject[] Object;
-    public static float speed = -0.01f;
+
+    [SerializeField]
+    public float speed = -0.05f;
     void Update()
     {
         if (!GameManager.Instance.IsInGame) return;

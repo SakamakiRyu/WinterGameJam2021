@@ -34,6 +34,8 @@ public class GameManager : Singleton<GameManager>
     private bool _IsInGame = false;
     /// <summary>タイマー</summary>
     private float _Timer;
+    /// <summary>ゲームの進行速度</summary>
+    private float _GameSpeed = -0.05f;
 
     #region Property
     /// <summary>スタート時のライフ</summary>
@@ -153,7 +155,7 @@ public class GameManager : Singleton<GameManager>
                 {
                     if (Input.anyKeyDown)
                     {
-                         ChengeSceneState(SceneState.InGame);
+                        ChengeSceneState(SceneState.InGame);
                     }
                 }
                 break;
@@ -179,7 +181,7 @@ public class GameManager : Singleton<GameManager>
                 {
                     if (Input.anyKeyDown)
                     {
-                      //  ChengeSceneState(SceneState.Title);
+                        //  ChengeSceneState(SceneState.Title);
                     }
                 }
                 break;
