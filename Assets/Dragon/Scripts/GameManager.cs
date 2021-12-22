@@ -174,10 +174,10 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.Title:
                 {
-                    if (Input.anyKeyDown)
-                    {
-                        ChengeSceneState(SceneState.InGame);
-                    }
+                    //if (Input.anyKeyDown)
+                    //{
+                    //    ChengeSceneState(SceneState.InGame);
+                    //}
                 }
                 break;
             case SceneState.InGame:
