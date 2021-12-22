@@ -38,6 +38,9 @@ public class GameManager : Singleton<GameManager>
     private float _DefaultDropSpeed = -3;
 
     [SerializeField]
+    private float _AddSpeedValue;
+
+    [SerializeField]
     private Button _startButton;
 
     [SerializeField]
@@ -123,7 +126,7 @@ public class GameManager : Singleton<GameManager>
         if (after > _Boder)
         {
             _GameSpeed -= 0.05f;
-            _CurrentDropSpeed -= 0.8f;
+            _CurrentDropSpeed -= _AddSpeedValue;
             _Boder += 2000;
         }
 
