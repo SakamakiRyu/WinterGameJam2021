@@ -8,7 +8,6 @@ public class SoundManager : Singleton<SoundManager>
     private AudioSource _BGMSource;
     [SerializeField]
     private AudioSource _SESource;
-
     [SerializeField]
     private AudioClip[] _BGMClips;
 
@@ -25,7 +24,6 @@ public class SoundManager : Singleton<SoundManager>
     public enum SE
     {
         None = -1,
-        Player,//動いているときに鳴らす
         Success,//家にプレゼントが当たったときに鳴らす
         Failure,//家以外にプレゼントが当たったときに鳴らす
         Speedup//スコアを取ってステージのスピードが上がったときに鳴らす
@@ -65,9 +63,6 @@ public class SoundManager : Singleton<SoundManager>
         switch(se)
         {
             case SE.None:
-                break;
-            case SE.Player:
-                seindex = (int)se;
                 break;
             case SE.Success:
                 seindex = (int)se;
