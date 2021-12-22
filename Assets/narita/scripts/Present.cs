@@ -15,8 +15,7 @@ public class Present : MonoBehaviour
     [SerializeField]
     private Rigidbody2D _Rb;
 
-    [SerializeField]
-    private float _DropSpeed;
+    private float _DropSpeed => GameManager.Instance.GetDropSpeed;
 
     private void Start()
     {
