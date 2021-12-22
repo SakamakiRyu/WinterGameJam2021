@@ -2033,6 +2033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
         type: 3}
+      propertyPath: _AddSpeedValue
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
+        type: 3}
       propertyPath: _rankingButton
       value: 
       objectReference: {fileID: 1661582247}
