@@ -74,7 +74,7 @@ public class GameManager : Singleton<GameManager>
     /// <summary>ゲームスピード</summary>
     public float GetGameSpeed => _GameSpeed;
     /// <summary>プレゼントの落下速度</summary>
-    public float GetDropSpeed => _DefaultDropSpeed;
+    public float GetDropSpeed => _CurrentDropSpeed;
     #endregion
 
     #region Unity Event
