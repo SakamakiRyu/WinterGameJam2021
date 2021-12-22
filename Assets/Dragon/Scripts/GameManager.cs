@@ -194,6 +194,14 @@ public class GameManager : Singleton<GameManager>
         ChengeSceneState(SceneState.Result);
     }
 
+    /// <summary>
+    /// ボタン用のシーン遷移ボタン
+    /// </summary>
+    public void LoadTitle()
+    {
+        ChengeSceneState(SceneState.Title);
+    }
+
     private void Reset()
     {
         _CurrentScore = 0;
