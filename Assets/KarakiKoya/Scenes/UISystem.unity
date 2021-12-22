@@ -425,7 +425,7 @@ PrefabInstance:
     - target: {fileID: 828929996364507420, guid: 98b9c275b9647fa4fa62a600788625c0,
         type: 3}
       propertyPath: m_Name
-      value: SuccessOfPresent
+      value: Twinkle
       objectReference: {fileID: 0}
     - target: {fileID: 828929996364507491, guid: 98b9c275b9647fa4fa62a600788625c0,
         type: 3}

@@ -28,6 +28,8 @@ public class GUILifeController : MonoBehaviour
     /// </summary>
     public void SyncLife()
     {
+        if (!_lifeIconPref) return;
+
         Array.ForEach(_lifeIcons, i => i.enabled = false);
         Array.ForEach(_lifeIcons.Take(_nowLife).ToArray(), i => i.enabled = true);
     }

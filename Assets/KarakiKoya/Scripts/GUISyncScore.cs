@@ -22,7 +22,7 @@ public class GUISyncScore : MonoBehaviour
     /// </summary>
     public void SyncScore()
     {
-        _nowScoreText.text = _nowScore.ToString();
+        if (_nowScoreText) _nowScoreText.text = _nowScore.ToString();
     }
 
     // Update is called once per frame
