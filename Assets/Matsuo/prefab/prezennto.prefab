@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.3
   m_AngularDrag: 0.1
-  m_GravityScale: 0.5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -144,3 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceDirction: {x: 0, y: 0, z: 0}
+  _Rb: {fileID: 1449227376903967125}
+  _DropSpeed: -3
