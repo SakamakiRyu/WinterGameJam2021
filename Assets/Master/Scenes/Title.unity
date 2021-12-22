@@ -483,8 +483,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM_SE
       objectReference: {fileID: 0}
+    - target: {fileID: 1204128589774015573, guid: 8bdebdc9ab90fc246bf897f303ffd49d,
+        type: 3}
+      propertyPath: _PlayerSource
+      value: 
+      objectReference: {fileID: 714303558}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bdebdc9ab90fc246bf897f303ffd49d, type: 3}
+--- !u!82 &714303558 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1204128589774015570, guid: 8bdebdc9ab90fc246bf897f303ffd49d,
+    type: 3}
+  m_PrefabInstance: {fileID: 524496700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1032787549
 GameObject:
   m_ObjectHideFlags: 0
