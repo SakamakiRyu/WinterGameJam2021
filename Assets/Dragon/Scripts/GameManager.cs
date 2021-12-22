@@ -146,8 +146,8 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.InGame:
                 {
-                    _CurrentLife = _StartLife;
                     _TimerText.enabled = true;
+                    _CurrentLife = _StartLife;
                 }
                 break;
             case SceneState.Result:
@@ -156,7 +156,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         // シーンのロード
-        SceneManager.LoadSceneAsync((int)next);
+        SceneManager.LoadScene((int)next);
         // ステートの更新
         _CurrentScene = next;
     }
@@ -199,10 +199,6 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.Result:
                 {
-                    if (Input.anyKeyDown)
-                    {
-                        //  ChengeSceneState(SceneState.Title);
-                    }
                 }
                 break;
         }
