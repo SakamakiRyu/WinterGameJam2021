@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Present : MonoBehaviour
 {
-    public AudioClip Succeed;
-    public AudioClip Failure;
-    public AudioClip BadBoy;
-
     [SerializeField]
     private Vector3 ForceDirction;
 
@@ -21,11 +17,13 @@ public class Present : MonoBehaviour
     {
         if (collision.CompareTag("House"))
         {
+            SoundManager.Instance.PlaySE(SoundManager.SE.Success);
             Destroy(this.gameObject);
             return;
         }
         else if (!collision.CompareTag("Present"))
         {
+            SoundManager.Instance.PlaySE(SoundManager.SE.Failure);
             GameManager.Instance.AddDamage(1);
             Destroy(this.gameObject);
         }
