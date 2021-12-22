@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class House : MonoBehaviour
 {
     [SerializeField] SpriteRenderer Houseimage;
-    [SerializeField] int _score = 100;//加算されるスコア
+    [SerializeField] int _score = 100;//加算されるスコア,加算自体はGameManager内
     [SerializeField] int border = 3000;
     int borderscore = 0;
 
     private void Start()
     {
-        borderscore += border;
+        borderscore += border;//スピードが上がるために必要なスコア
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

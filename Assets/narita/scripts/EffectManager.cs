@@ -26,6 +26,6 @@ public class EffectManager : Singleton<EffectManager>
     /// </summary>
     public void Test()
     {
-        PlayEffect(Effect.Cracker, Vector3.zero);
+        PlayEffect(Effect.Twinkle, Vector3.zero);
     }
 }

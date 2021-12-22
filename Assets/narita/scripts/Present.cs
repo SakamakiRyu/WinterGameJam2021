@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Present : MonoBehaviour
 {
+    /// <summary>プレゼントにかける力</summary>
     [SerializeField]
     private Vector3 ForceDirction;
 
@@ -13,7 +14,7 @@ public class Present : MonoBehaviour
     private void Start()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(ForceDirction, ForceMode2D.Force);
+        rb.AddForce(ForceDirction, ForceMode2D.Force);//今回はx軸のみに力を加える予定
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
