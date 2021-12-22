@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class House : MonoBehaviour
 {
-    [SerializeField] AudioClip SpeedUp;
     [SerializeField] SpriteRenderer Houseimage;
     [SerializeField] int _score = 100;//加算されるスコア
     [SerializeField] int border = 3000;
     int borderscore = 0;
+
+    /// <summary>プレゼントを持っているか</summary>
+    private bool _hasPresent = false;
 
     private void Start()
     {
@@ -17,8 +19,11 @@ public class House : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_hasPresent) return;
+
         if (collision.gameObject.tag == "Present")
         {
+            _hasPresent = true;
             //スコアを増やす
             GameManager.Instance.AddScore(_score);
 
@@ -31,7 +36,6 @@ public class House : MonoBehaviour
             if (GameManager.Instance.GetCurrentScore >= borderscore)
             {
                 borderscore += border;
-                AudioSource.PlayClipAtPoint(SpeedUp, transform.position);
                 Stage.speed = Stage.speed - 0.01f;
             }
         }
