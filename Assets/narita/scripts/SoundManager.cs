@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager>
 {
+    private void Start()
+    {
+        _BGMSource.pitch = 1.0f;
+    }
     [SerializeField]
     private AudioSource _BGMSource;
     [SerializeField]
@@ -77,4 +81,8 @@ public class SoundManager : Singleton<SoundManager>
         _SESource.clip = _SEClips[seindex];
     }
 
+    public void chengeBGMtemp(float temp)
+    {
+        _BGMSource.pitch = temp;
+    }
 }
