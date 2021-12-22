@@ -52,7 +52,10 @@ MonoBehaviour:
   GeneratePosition: {x: 19, y: 0, z: 0}
   Object:
   - {fileID: 8504067323842790245, guid: aead301ad1d0cf441b2c3a08eacc1669, type: 3}
+  - {fileID: 8504067323842790245, guid: df934583258481441982d5186d0ccaac, type: 3}
   - {fileID: 5361071640858331487}
+  - {fileID: 8504067323842790245, guid: aead301ad1d0cf441b2c3a08eacc1669, type: 3}
+  - {fileID: 8504067323842790245, guid: aead301ad1d0cf441b2c3a08eacc1669, type: 3}
 --- !u!61 &5546272258021711909
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -259,7 +262,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8070609709444860257, guid: 17a8de840c7cfc4418582f97d48a376c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17a8de840c7cfc4418582f97d48a376c, type: 3}
 --- !u!4 &2474134504790091530 stripped
 Transform:
@@ -419,7 +423,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7094773059466912628, guid: 945c96d76ba760748850fb7420c2f6d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 945c96d76ba760748850fb7420c2f6d5, type: 3}
 --- !u!4 &1296586748486080000 stripped
 Transform:
@@ -504,7 +509,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: House2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -742395280000841015, guid: 6fb16a44a3abda243b737ba6fb30f8e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fb16a44a3abda243b737ba6fb30f8e5, type: 3}
 --- !u!4 &1611561179370127985 stripped
 Transform:

@@ -487,15 +487,9 @@ PrefabInstance:
         type: 3}
       propertyPath: _PlayerSource
       value: 
-      objectReference: {fileID: 714303558}
+      objectReference: {fileID: 1799612111}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bdebdc9ab90fc246bf897f303ffd49d, type: 3}
---- !u!82 &714303558 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1204128589774015570, guid: 8bdebdc9ab90fc246bf897f303ffd49d,
-    type: 3}
-  m_PrefabInstance: {fileID: 524496700}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1032787549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1239,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 491, y: -294}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1560686010
 MonoBehaviour:
@@ -1309,8 +1303,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 2468801834271568077, guid: 640482c72a72474448f89538ec76ac83,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1594,6 +1589,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f90e7bda98efe469f96f9683d6492d, type: 3}
+--- !u!82 &1799612111 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1204128589774015570, guid: 8bdebdc9ab90fc246bf897f303ffd49d,
+    type: 3}
+  m_PrefabInstance: {fileID: 524496700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1839543195
 GameObject:
   m_ObjectHideFlags: 0
