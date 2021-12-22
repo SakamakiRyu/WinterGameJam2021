@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1020322113}
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 1720712937}
   menu: {fileID: 1902996758}
   nextButton: {fileID: 1346786348}
   scoreText: {fileID: 607029883}
@@ -2879,6 +2879,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce6ef2fd74fb6f24b895788f462959a3, type: 3}
+--- !u!1 &1720712937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 342104453269271099, guid: ce6ef2fd74fb6f24b895788f462959a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1720712936}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1786858055
 PrefabInstance:
   m_ObjectHideFlags: 0
