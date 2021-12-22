@@ -43,5 +43,4 @@ public class JsonDate : MonoBehaviour
         
         return _saveDate;
     }
-
 }
