@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
@@ -10,15 +8,18 @@ public class Stage : MonoBehaviour
     void Update()
     {
         if (!GameManager.Instance.IsInGame) return;
-        var speed = GameManager.Instance.GetGameSpeed;
-        transform.Translate(speed, 0, 0);
+
+        if (!GameManager.Instance.IsPause)
+        {
+            var speed = GameManager.Instance.GetGameSpeed;
+            transform.Translate(speed, 0, 0);
+        }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("DeadZone"))
         {
             int rand = Random.Range(0, Object.Length);//0～gameobjectの配列ー１をランダムで渡す
-            Debug.Log(rand);
             GameObject go = Instantiate(Object[rand]);
             go.transform.position = GeneratePosition;
             Destroy(this.gameObject);

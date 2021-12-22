@@ -1,16 +1,17 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UniRx;
+using UnityEngine;
 using UnityEngine.Events;
-using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UniRx;
 
 /// <summary>
 /// ゲームを管理するコンポーネント
 /// 本来はTimerやScene関連は分けるべき。
+/// 短期制作の為、設計などは考慮しない
 /// </summary>
 public class GameManager : Singleton<GameManager>
 {
+    #region Define
     public enum SceneState
     {
         None = -1,
@@ -18,12 +19,14 @@ public class GameManager : Singleton<GameManager>
         InGame,
         Result
     }
+    #endregion
 
+    #region Serialize Field
     [SerializeField]
     private int _StartLife = 5;
 
     [SerializeField]
-    private UnityEngine.UI.Text _TimerText;
+    private Text _TimerText;
 
     [SerializeField]
     private float _CountDownTime;
@@ -48,7 +51,9 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField]
     private Button _tutorialButton;
+    #endregion
 
+    #region Private Field
     /// <summary>現在のHP</summary>
     private int _CurrentLife;
     /// <summary>スコア</summary>
@@ -65,6 +70,9 @@ public class GameManager : Singleton<GameManager>
     private int _Boder = 2000;
     /// <summary>現在の落下速度</summary>
     private float _CurrentDropSpeed;
+    /// <summary>ポウズ中か</summary>
+    private bool _IsPause = false;
+    #endregion
 
     #region Property
     /// <summary>スタート時のライフ</summary>
@@ -81,15 +89,11 @@ public class GameManager : Singleton<GameManager>
     public float GetGameSpeed => _GameSpeed;
     /// <summary>プレゼントの落下速度</summary>
     public float GetDropSpeed => _CurrentDropSpeed;
+    /// <summary>ポウズ中かを取得</summary>
+    public bool IsPause => _IsPause;
     #endregion
 
     #region Unity Event
-    /// <summary>
-    /// ゲームが始まった時に呼ばれる
-    /// </summary>
-    [SerializeField]
-    public UnityEvent OnGameStart = new UnityEvent();
-
     /// <summary>
     /// ゲームが終了した時に呼ばれるイベント
     /// ※ここでのゲーム終了はライフが0になった時。
@@ -152,6 +156,15 @@ public class GameManager : Singleton<GameManager>
     }
 
     /// <summary>
+    /// 一時停止・再開を切り替える
+    /// </summary>
+    public void PauseOrResume()
+    {
+        //ポーズ状態を反転
+        _IsPause = !_IsPause;
+    }
+
+    /// <summary>
     /// シーンステートの変更をする
     /// ※シーンの変更はこの関数を使う事
     /// </summary>
@@ -164,30 +177,32 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.Title:
                 {
-                    SoundManager.Instance.ChengeBGMPlaySpeed(0f);
-                    SoundManager.Instance.chengeBGMtemp(0.5f);
+                    SoundManager.Instance.ChengeBGM(SoundManager.BGM.TitleMusic, 0f, 1.0f);
+
                     _startButton.gameObject.SetActive(true);
                     _rankingButton.gameObject.SetActive(true);
                     _tutorialButton.gameObject.SetActive(true);
+
                     Reset();
                 }
                 break;
             case SceneState.InGame:
                 {
+                    SoundManager.Instance.ChengeBGM(SoundManager.BGM.StageMusic, 0f, 1.5f);
                     SoundManager.Instance.StartPlayerBGM();
-                    Cursor.visible = false;
+
                     _startButton.gameObject.SetActive(false);
                     _rankingButton.gameObject.SetActive(false);
                     _tutorialButton.gameObject.SetActive(false);
-                    SoundManager.Instance.chengeBGMtemp(1.5f);
+
                     _TimerText.enabled = true;
                     _CurrentLife = _StartLife;
                 }
                 break;
             case SceneState.Result:
                 {
+                    SoundManager.Instance.ChengeBGM(SoundManager.BGM.TitleMusic, 0f, 1.0f);
                     SoundManager.Instance.StopPlayerBGM();
-                    Cursor.visible = true;
                 }
                 break;
         }
@@ -209,12 +224,7 @@ public class GameManager : Singleton<GameManager>
                 { }
                 break;
             case SceneState.Title:
-                {
-                    //if (Input.anyKeyDown)
-                    //{
-                    //    ChengeSceneState(SceneState.InGame);
-                    //}
-                }
+                { }
                 break;
             case SceneState.InGame:
                 {
@@ -235,9 +245,7 @@ public class GameManager : Singleton<GameManager>
                 }
                 break;
             case SceneState.Result:
-                {
-                    SoundManager.Instance.PlayBGM(SoundManager.BGM.TitleMusic);
-                }
+                { }
                 break;
         }
     }
@@ -251,24 +259,32 @@ public class GameManager : Singleton<GameManager>
     }
 
     /// <summary>
-    /// ボタン用のシーン遷移ボタン
+    /// ボタン用のシーン遷移メソッド
     /// </summary>
     public void LoadTitle()
     {
         ChengeSceneState(SceneState.Title);
     }
 
-    private void Reset()
+    /// <summary>
+    /// ボタン用のリスタートメソッド
+    /// </summary>
+    public void Restart()
     {
-        SoundManager.Instance.ChengeBGMPlaySpeed(1.0f);
+        ChengeSceneState(SceneState.InGame);
+        Restart();
+    }
+
+    public void Reset()
+    {
+        SoundManager.Instance.ChengeBGMPlayTime(1.0f);
+        SoundManager.Instance.ChengeBGMTemp(1.0f);
         _CurrentDropSpeed = _DefaultDropSpeed;
         _CurrentScore = 0;
-        SoundManager.Instance.chengeBGMtemp(1.0f);
         _GameSpeed = _DefaultGameSpeed;
         _Boder = _DefaultBoder;
         _TimerText.text = "";
         _Timer = _CountDownTime;
         _IsInGame = false;
-
     }
 }

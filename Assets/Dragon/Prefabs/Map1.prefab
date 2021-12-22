@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4435889398759445517}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -3.02, z: 0}
+  m_LocalPosition: {x: -6.98, y: -3.02, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 8504067323842790250}
@@ -160,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.76, y: 0.66}
+  m_Size: {x: 0.76, y: 0.99}
   m_EdgeRadius: 0
 --- !u!1 &8504067324300261639
 GameObject:
@@ -282,6 +282,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8504067323842790250}
     m_Modifications:
+    - target: {fileID: 1359794310885383648, guid: a77dee372c59078488ada84e6667d932,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359794310885383648, guid: a77dee372c59078488ada84e6667d932,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359794310885383648, guid: a77dee372c59078488ada84e6667d932,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.42
+      objectReference: {fileID: 0}
     - target: {fileID: 3710819298605133116, guid: a77dee372c59078488ada84e6667d932,
         type: 3}
       propertyPath: m_Name
@@ -381,6 +396,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388561173895434175, guid: aa3e55997b3e19044ae7a1a255a53c73,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388561173895434175, guid: aa3e55997b3e19044ae7a1a255a53c73,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388561173895434175, guid: aa3e55997b3e19044ae7a1a255a53c73,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.62
       objectReference: {fileID: 0}
     - target: {fileID: 7504834660588009312, guid: aa3e55997b3e19044ae7a1a255a53c73,
         type: 3}

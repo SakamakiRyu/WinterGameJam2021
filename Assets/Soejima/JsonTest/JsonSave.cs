@@ -1,11 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Linq;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Linq;
-using UniRx;
-using System;
-using UniRx.Triggers;
 
 public class JsonSave : MonoBehaviour
 {
@@ -21,7 +17,6 @@ public class JsonSave : MonoBehaviour
     SaveDate _saveDate;
     JsonDate _jsonDate;
     GameManager gameManager;
-    //IObservable<Unit> clickEvent => this.UpdateAsObservable();
     bool isHighScore = true;
 
     void Start()
@@ -32,7 +27,6 @@ public class JsonSave : MonoBehaviour
         _jsonDate = JsonDate.Instance;
         _saveDate = SaveDate.Instance;
         gameManager = GameManager.Instance;
-        //textBox = GetComponentInChildren<InputField>();
         scoreText.text = gameManager.GetCurrentScore.ToString();
         nextButton.OnClickAsObservable().FirstOrDefault().Subscribe(_ =>
         {
@@ -49,16 +43,12 @@ public class JsonSave : MonoBehaviour
         {
             isHighScore = true;
         }
-        
+
         if (isHighScore == false)
         {
             menu.gameObject.SetActive(true);
             nextButton.gameObject.SetActive(false);
         }
-        //if (isHighScore == true)
-        //{
-        //    _sprite.SetActive(false);
-        //}
     }
 
     public void NameSet()
@@ -69,7 +59,7 @@ public class JsonSave : MonoBehaviour
     public void Load()
     {
         _saveDate = _jsonDate.Load();
-        
+
         for (int i = 0; i < _saveDate._datelist.Count; i++)
         {
             if (i < 3)
@@ -80,7 +70,7 @@ public class JsonSave : MonoBehaviour
             {
                 rankingLIst[i].text = (i + 1).ToString() + "位: " + _saveDate._datelist[i]._playerName.ToString() + "  " + _saveDate._datelist[i]._score.ToString();
             }
-            
+
         }
     }
 
