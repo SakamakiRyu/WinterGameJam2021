@@ -146,6 +146,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             case SceneState.InGame:
                 {
+                    SoundManager.Instance.chengeBGMtemp(1.5f);
                     _TimerText.enabled = true;
                     _CurrentLife = _StartLife;
                 }
@@ -223,6 +224,7 @@ public class GameManager : Singleton<GameManager>
     private void Reset()
     {
         _CurrentScore = 0;
+        SoundManager.Instance.chengeBGMtemp(1.0f);
         _GameSpeed = _DefaultGameSpeed;
         _Boder = _DefaultBoder;
         _TimerText.text = "";
