@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5003712409420911993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.37, y: 4.280686, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0.3
   m_AngularDrag: 0.1
-  m_GravityScale: 0.5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -143,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3e100c912518740abf9c6e18509fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Succeed: {fileID: 0}
-  Failure: {fileID: 0}
-  BadBoy: {fileID: 0}
   ForceDirction: {x: 0, y: 0, z: 0}
+  _Rb: {fileID: 5003712409420912007}
+  _DropSpeed: -3
