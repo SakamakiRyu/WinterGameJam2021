@@ -10,6 +10,7 @@ using UniRx.Triggers;
 public class JsonSave : MonoBehaviour
 {
     [SerializeField] InputField textBox = default;
+    [SerializeField] GameObject _sprite;
     [SerializeField] Button menu;
     [SerializeField] Text scoreText;
     [SerializeField] GameObject nextPanel;
@@ -42,6 +43,10 @@ public class JsonSave : MonoBehaviour
         if (isHighScore == false)
         {
             menu.gameObject.SetActive(true);
+        }
+        if (isHighScore == true)
+        {
+            _sprite.SetActive(false);
         }
     }
 
