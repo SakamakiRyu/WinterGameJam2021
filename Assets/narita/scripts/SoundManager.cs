@@ -13,6 +13,8 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField]
     private AudioSource _SESource;
     [SerializeField]
+    private AudioSource _PlayerSource;
+    [SerializeField]
     private AudioClip[] _BGMClips;
 
     [SerializeField]
@@ -84,5 +86,21 @@ public class SoundManager : Singleton<SoundManager>
     public void chengeBGMtemp(float temp)
     {
         _BGMSource.pitch = temp;
+    }
+
+    public void ChengeBGMPlaySpeed(float time)
+    {
+        _BGMSource.time = time;
+    }
+
+    public void StartPlayerBGM()
+    {
+         _PlayerSource.time = 0f;
+        _PlayerSource.Play();
+    }
+
+    public void StopPlayerBGM()
+    {
+        _PlayerSource.Stop();
     }
 }
