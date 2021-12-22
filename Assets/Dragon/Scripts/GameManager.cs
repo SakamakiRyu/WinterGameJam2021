@@ -165,6 +165,7 @@ public class GameManager : Singleton<GameManager>
             case SceneState.Title:
                 {
                     SoundManager.Instance.ChengeBGMPlaySpeed(0f);
+                    SoundManager.Instance.chengeBGMtemp(0.5f);
                     _startButton.gameObject.SetActive(true);
                     _rankingButton.gameObject.SetActive(true);
                     _tutorialButton.gameObject.SetActive(true);
