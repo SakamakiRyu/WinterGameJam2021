@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002482027c004fe46b82de14f02a0a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeneratePosition: {x: 0, y: 0, z: 0}
-  Object: []
+  GeneratePosition: {x: 19, y: 0, z: 0}
+  Object:
+  - {fileID: 8504067323842790245, guid: aead301ad1d0cf441b2c3a08eacc1669, type: 3}
+  - {fileID: 8504067323842790245}
 --- !u!61 &8504067323842790248
 BoxCollider2D:
   m_ObjectHideFlags: 0
