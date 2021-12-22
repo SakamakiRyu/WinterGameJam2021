@@ -7,11 +7,10 @@ public class Stage : MonoBehaviour
     [SerializeField] Vector3 GeneratePosition;//移動させる座標
     [SerializeField] GameObject[] Object;
 
-    [SerializeField]
-    public float speed = -0.05f;
     void Update()
     {
         if (!GameManager.Instance.IsInGame) return;
+        var speed = GameManager.Instance.GetGameSpeed;
         transform.Translate(speed, 0, 0);
     }
     void OnTriggerEnter2D(Collider2D collision)

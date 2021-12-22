@@ -12,7 +12,7 @@ public class PresentShooter : MonoBehaviour
     float timer = 0;
     [SerializeField] float interval = 0.3f;
 
-    [SerializeField] int serect = 0; 
+    [SerializeField] int serect = 0;
     void Start()
     {
 
@@ -27,7 +27,7 @@ public class PresentShooter : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             serect = Random.Range(0, 4);
-            if(timer > interval)
+            if (timer > interval)
             {
                 if (serect == 0)
                 {
@@ -51,7 +51,6 @@ public class PresentShooter : MonoBehaviour
                 }
                 timer = 0;
             }
-
         }
     }
 }
