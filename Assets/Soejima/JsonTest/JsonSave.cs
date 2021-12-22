@@ -41,16 +41,24 @@ public class JsonSave : MonoBehaviour
             nextPanel.SetActive(true);
         }).AddTo(this);
         Load();
-        isHighScore = gameManager.GetCurrentScore > _saveDate._datelist[_saveDate._datelist.Count - 1]._score ? true : false;
+        if (_saveDate._datelist.Count > 5)
+        {
+            isHighScore = gameManager.GetCurrentScore > _saveDate._datelist[_saveDate._datelist.Count - 1]._score ? true : false;
+        }
+        else
+        {
+            isHighScore = true;
+        }
+        
         if (isHighScore == false)
         {
             menu.gameObject.SetActive(true);
             nextButton.gameObject.SetActive(false);
         }
-        if (isHighScore == true)
-        {
-            _sprite.SetActive(false);
-        }
+        //if (isHighScore == true)
+        //{
+        //    _sprite.SetActive(false);
+        //}
     }
 
     public void NameSet()
