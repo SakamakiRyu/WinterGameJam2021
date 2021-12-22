@@ -35,6 +35,9 @@ public class GameManager : Singleton<GameManager>
     private int _DefaultBoder;
 
     [SerializeField]
+    private float _DefaultDropSpeed = -3;
+
+    [SerializeField]
     private Button _startButton;
 
     [SerializeField]
@@ -52,8 +55,10 @@ public class GameManager : Singleton<GameManager>
     private float _Timer;
     /// <summary>ゲームの進行速度</summary>
     private float _GameSpeed = -0.05f;
-    /// <summary></summary>
+    /// <summary>速度アップのボーダー</summary>
     private int _Boder = 2000;
+    /// <summary>現在の落下速度</summary>
+    private float _CurrentDropSpeed;
 
     #region Property
     /// <summary>スタート時のライフ</summary>
@@ -68,6 +73,8 @@ public class GameManager : Singleton<GameManager>
     public bool IsInGame => _IsInGame;
     /// <summary>ゲームスピード</summary>
     public float GetGameSpeed => _GameSpeed;
+    /// <summary>プレゼントの落下速度</summary>
+    public float GetDropSpeed => _DefaultDropSpeed;
     #endregion
 
     #region Unity Event
@@ -97,7 +104,7 @@ public class GameManager : Singleton<GameManager>
         _rankingButton.gameObject.SetActive(true);
         _TimerText.text = "";
         ChengeSceneState(SceneState.Title);
-        _startButton.OnClickAsObservable().Subscribe( _ => ChengeSceneState(SceneState.InGame));
+        _startButton.OnClickAsObservable().Subscribe(_ => ChengeSceneState(SceneState.InGame));
     }
 
     private void Update()
@@ -116,6 +123,7 @@ public class GameManager : Singleton<GameManager>
         if (after > _Boder)
         {
             _GameSpeed -= 0.05f;
+            _CurrentDropSpeed -= 0.8f;
             _Boder += 2000;
         }
 
@@ -239,6 +247,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Reset()
     {
+        _CurrentDropSpeed = _DefaultDropSpeed;
         _CurrentScore = 0;
         SoundManager.Instance.chengeBGMtemp(1.0f);
         _GameSpeed = _DefaultGameSpeed;
@@ -246,6 +255,6 @@ public class GameManager : Singleton<GameManager>
         _TimerText.text = "";
         _Timer = _CountDownTime;
         _IsInGame = false;
-        
+
     }
 }
