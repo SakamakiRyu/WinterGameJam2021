@@ -449,6 +449,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: House2
       objectReference: {fileID: 0}
+    - target: {fileID: 8001418754793983303, guid: 6fb16a44a3abda243b737ba6fb30f8e5,
+        type: 3}
+      propertyPath: _score
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -742395280000841015, guid: 6fb16a44a3abda243b737ba6fb30f8e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fb16a44a3abda243b737ba6fb30f8e5, type: 3}

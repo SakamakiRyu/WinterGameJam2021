@@ -127,7 +127,7 @@ public class SoundManager : Singleton<SoundManager>
                 seindex = (int)se;
                 break;
         }
-        _SESource.clip = _SEClips[seindex];
+        _SESource.PlayOneShot(_SEClips[seindex]);
     }
 
     /// <summary>

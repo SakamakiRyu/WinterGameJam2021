@@ -287,6 +287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: House2
       objectReference: {fileID: 0}
+    - target: {fileID: 8001418754793983303, guid: 6fb16a44a3abda243b737ba6fb30f8e5,
+        type: 3}
+      propertyPath: _score
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -742395280000841015, guid: 6fb16a44a3abda243b737ba6fb30f8e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6fb16a44a3abda243b737ba6fb30f8e5, type: 3}
@@ -307,6 +312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972580457467887788, guid: 945c96d76ba760748850fb7420c2f6d5,
+        type: 3}
+      propertyPath: _score
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8972580457467887789, guid: 945c96d76ba760748850fb7420c2f6d5,
         type: 3}
@@ -438,6 +448,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 782164570621654491, guid: 17a8de840c7cfc4418582f97d48a376c,
+        type: 3}
+      propertyPath: _score
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 782164570621654501, guid: 17a8de840c7cfc4418582f97d48a376c,
         type: 3}
