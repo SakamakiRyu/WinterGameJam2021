@@ -24,7 +24,7 @@ public class PresentShooter : MonoBehaviour
         if (!GameManager.Instance.IsInGame) return;
 
         timer += Time.deltaTime;
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Jump"))
         {
             serect = Random.Range(0, 4);
             if(timer > interval)

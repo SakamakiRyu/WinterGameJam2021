@@ -51,7 +51,7 @@ MonoBehaviour:
   GeneratePosition: {x: 19, y: 0, z: 0}
   Object:
   - {fileID: 8504067323842790245}
-  - {fileID: 8504067323842790245, guid: df934583258481441982d5186d0ccaac, type: 3}
+  - {fileID: 8504067323842790245}
 --- !u!61 &8504067323842790248
 BoxCollider2D:
   m_ObjectHideFlags: 0

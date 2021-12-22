@@ -202,6 +202,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: House3
       objectReference: {fileID: 0}
+    - target: {fileID: 3710819298605133116, guid: a77dee372c59078488ada84e6667d932,
+        type: 3}
+      propertyPath: m_TagString
+      value: House
+      objectReference: {fileID: 0}
     - target: {fileID: 6192130922521583475, guid: a77dee372c59078488ada84e6667d932,
         type: 3}
       propertyPath: m_SortingOrder
