@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PresentShooter : MonoBehaviour
 {
@@ -23,6 +21,7 @@ public class PresentShooter : MonoBehaviour
     void Update()
     {
         if (!GameManager.Instance.IsInGame) return;
+        if (GameManager.Instance.IsPause) return;
 
         timer += Time.deltaTime;
         if (Input.GetButtonDown("Jump"))

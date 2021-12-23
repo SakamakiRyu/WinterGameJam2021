@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Present : MonoBehaviour
 {
@@ -32,7 +29,7 @@ public class Present : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        if (_Rb)
+        if (_Rb && !GameManager.Instance.IsPause)
         {
             var velo = _Rb.velocity;
             velo.y = _DropSpeed;
