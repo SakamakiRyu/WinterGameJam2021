@@ -2048,7 +2048,7 @@ PrefabInstance:
     - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
         type: 3}
       propertyPath: _AddSpeedValue
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
         type: 3}
@@ -2062,8 +2062,18 @@ PrefabInstance:
       objectReference: {fileID: 2073993763}
     - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
         type: 3}
+      propertyPath: _DefaultDropSpeed
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
+        type: 3}
       propertyPath: _DefaultGameSpeed
-      value: -0.08
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
+        type: 3}
+      propertyPath: _AddGameSpeedValue
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 1426768879631365397, guid: 62b31417cfa6d5c45b879c9fcfccd0f9,
         type: 3}
