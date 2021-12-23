@@ -35,7 +35,7 @@ public class JsonSave : MonoBehaviour
             nextPanel.SetActive(true);
         }).AddTo(this);
         Load();
-        if (_saveDate._datelist.Count > 5)
+        if (_saveDate._datelist.Count > 4)
         {
             isHighScore = gameManager.GetCurrentScore > _saveDate._datelist[_saveDate._datelist.Count - 1]._score ? true : false;
         }
