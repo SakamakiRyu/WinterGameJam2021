@@ -11,7 +11,7 @@ public class Stage : MonoBehaviour
 
         if (!GameManager.Instance.IsPause)
         {
-            var speed = GameManager.Instance.GetGameSpeed;
+            var speed = GameManager.Instance.GetGameSpeed * Time.deltaTime * 25f;
             transform.Translate(speed, 0, 0);
         }
     }
