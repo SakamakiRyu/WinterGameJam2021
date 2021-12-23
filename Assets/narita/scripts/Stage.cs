@@ -7,6 +7,11 @@ public class Stage : MonoBehaviour
 
     void Update()
     {
+
+    }
+
+    private void FixedUpdate()
+    {
         if (!GameManager.Instance.IsInGame) return;
 
         if (!GameManager.Instance.IsPause)
@@ -15,6 +20,7 @@ public class Stage : MonoBehaviour
             transform.Translate(speed, 0, 0);
         }
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("DeadZone"))

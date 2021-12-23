@@ -19,7 +19,7 @@ public class Present : MonoBehaviour
         _Rb.AddForce(ForceDirction, ForceMode2D.Force);//今回はx軸のみに力を加える予定
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
     }

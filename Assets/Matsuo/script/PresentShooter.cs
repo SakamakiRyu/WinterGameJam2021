@@ -12,12 +12,7 @@ public class PresentShooter : MonoBehaviour
     [SerializeField] SpriteRenderer _allowImage;
 
     [SerializeField] int serect = 0;
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (!GameManager.Instance.IsInGame) return;

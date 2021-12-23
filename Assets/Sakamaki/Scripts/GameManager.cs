@@ -35,6 +35,9 @@ public class GameManager : Singleton<GameManager>
     private float _DefaultGameSpeed = -0.05f;
 
     [SerializeField]
+    private float _AddGameSpeedValue;
+
+    [SerializeField]
     private int _DefaultBoder;
 
     [SerializeField]
@@ -115,7 +118,7 @@ public class GameManager : Singleton<GameManager>
         _startButton.OnClickAsObservable().Subscribe(_ => ChengeSceneState(SceneState.InGame));
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         StateUpdate();
     }
@@ -130,7 +133,7 @@ public class GameManager : Singleton<GameManager>
 
         if (after > _Boder)
         {
-            _GameSpeed -= 0.05f;
+            _GameSpeed -= _AddGameSpeedValue;
             _CurrentDropSpeed -= _AddSpeedValue;
             _Boder += 2000;
         }
